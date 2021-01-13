@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import Hello from './Hello';
+import Sample from './Sample';
 import reportWebVitals from './reportWebVitals';
+import firebase, {db} from './Firebase';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <Hello />
+    <Sample />
   </React.StrictMode>,
   document.getElementById('root')
 );
