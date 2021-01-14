@@ -1,0 +1,48 @@
+.Landing {
+    text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.Landing-header {
+    background-color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: #284458E0;
+}
+
+.Landing-link {
+    color: #61dafb;
+}
+
+.custom-shape-divider-top-1610627084 {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1610627084 svg {
+    position: relative;
+    display: block;
+    width: calc(202% + 1.3px);
+    height: 237px;
+}
+
+.custom-shape-divider-top-1610627084 .shape-fill {
+    fill: #284458E0;
+}
+
+.near-login-button {
+    color: #f44336; 
+}

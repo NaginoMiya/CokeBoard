@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import SignInScreen from './SignInScreen';
+import Button from '@material-ui/core/Button';
 
 class SignIn extends Component {
   state = {
@@ -25,11 +25,9 @@ class SignIn extends Component {
     if (this.state.loading) return <div>loading</div>;
     return (
       <div>
-        Username: {this.state.user && this.state.user.displayName}
-        <br />
         {this.state.user ?
-          (<button onClick={this.logout}>Logout</button>) :
-          (<SignInScreen />)
+          (<Button href="#loginButton" variant="contained" color="secondary" disableElevation> Start Memo </Button>) :
+          (<Button href="#loginButton" variant="contained" color="secondary" disableElevation> Login </Button>)
         }
       </div>
     );
