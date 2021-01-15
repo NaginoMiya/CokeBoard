@@ -11,7 +11,7 @@ function MenuBar(props){
         <div>
             <CreateNewMemoButton uid={props.uid} Memos={props.Memos} setMemos={props.setMemos} />
             <RemoveMemoButton uid={props.uid} Memos={props.Memos} setMemos={props.setMemos} CurrentMemo={props.CurrentMemo}/>
-            <div>{(props.Memos).map(x => <Memo key={x.CreatedDate} CreatedDate={x.CreatedDate} MemoName={x.MemoName} MiniMemo_A={x.MiniMemo_A} setCurrentMemo={props.setCurrentMemo}  />)}</div>
+            <div>{(props.Memos).map(x => <Memo key={x.CreatedDate} Memo={x} setCurrentMemo={props.setCurrentMemo}  />)}</div>
         </div>
     );
 }

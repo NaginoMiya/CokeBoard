@@ -29,8 +29,8 @@ function RemoveMemoButton(props){
         }
     
         //条件に一致したものを配列に格納し直す‥
-        let tmp = (props.Memos).filter(x => (x.CreatedDate != props.CurrentMemo));
-        let DocmentName = (props.Memos).filter(x => (x.CreatedDate == props.CurrentMemo));
+        let tmp = (props.Memos).filter(x => (x.CreatedDate != props.CurrentMemo.CreatedDate));
+        let DocmentName = (props.Memos).filter(x => (x.CreatedDate == props.CurrentMemo.CreatedDate));
 
         if(DocmentName.length == 0){
             //2回続けて同じメモを削除しようとした場合のエラーハンドリング.

@@ -1,13 +1,16 @@
 import React from 'react';
 
 function Memo(props){
+    const M = props.Memo;
+
     const handler = React.useCallback(() => {
-        props.setCurrentMemo(props.CreatedDate);
+//        props.setCurrentMemo(M.CreatedDate);
+        props.setCurrentMemo(M);
     });
 
     return (
         <div className="contents">
-            <button onClick={handler}> {props.CreatedDate} : {props.MiniMemo_A} : MemoName={props.MemoName} </button>
+            <button onClick={handler}> {M.CreatedDate} : {M.MiniMemo_A} : MemoName={M.MemoName} </button>
         </div>
     );
 }

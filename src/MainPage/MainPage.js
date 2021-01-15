@@ -58,7 +58,7 @@ function MainPage(props) {
                 <h2> -------- </h2>
             </div>
             
-            <div>CurrentMemo = {CurrentMemo}</div>
+            <div>CurrentMemo = {(CurrentMemo != null) ? CurrentMemo.CreatedDate : "xxx" }</div>
             {/* 左側のメニューバー */}
             <div>{isLoading ? <div>Loading</div> :  <MenuBar uid={props.uid} Memos={Memos} setMemos={setMemos} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} />}</div>
         </div>
