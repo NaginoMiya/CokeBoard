@@ -25,9 +25,11 @@ export default function SimplePaper() {
         <Grid container spacing={2}>
             <Grid item xl={7}>
                 <Paper elevation={10} className="paper-components">
-                    <h3>みんなでドリンクでも飲みながら</h3>
-                    <p>Coke Boardは1つの大きなジュースをみんなでシェアしながら楽しくアイデア出しするような場面を想像しながら作成されました。</p>
-                    <p>議論が白熱してアイデアがあっちこっち行ってしまっても大丈夫。Coke Boardは1つにまとめてくれます。</p>
+                    <h3 className="paper-title">みんなでドリンクでも飲みながら</h3>
+                    <div class="paper-text">
+                        <p>Coke Boardは1つの大きなジュースをみんなでシェアしながら楽しくアイデア出しするような場面を想像しながら作成されました。</p>
+                        <p>議論が白熱してアイデアがあっちこっち行ってしまっても大丈夫。Coke Boardは1つにまとめてくれます。</p>
+                    </div>
                 </Paper>
             </Grid>
             <Grid item xl={5}>
