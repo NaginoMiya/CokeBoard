@@ -25,7 +25,7 @@ export default function SimplePaper() {
                   <Paper elevation={10} className="paper-components">
                       <h3 className="paper-title">みんなでドリンクでも飲みながら</h3>
                       <div class="paper-text">
-                          <p>Coke Boardは1つの大きなジュースをみんなでシェアしながら</p>
+                          <p>Coke Boardは1本の大きなジュースをみんなでシェアしながら</p>
                           <p>楽しくアイデア出しするような場面を想像しながら作成されました。</p>
                           <p>議論が白熱してアイデアがあっちこっち行ってしまっても大丈夫。Coke Boardは1つにまとめてくれます。</p>
                       </div>

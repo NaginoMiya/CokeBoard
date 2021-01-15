@@ -32,7 +32,8 @@ export default function SimplePaper() {
                                 <h3 className="paper-title">嬉しいMarkdown対応</h3>
                                 <div class="paper-text">
                                     <p>たかがメモといっても見やすさは大切です。</p>
-                                    <p>Coke BoardではMarkdown入力に対応しており、メモを見やすく飾ってくれます。</p>
+                                    <p>Coke BoardではMarkdown入力に対応しており、</p>
+                                    <p>メモを見やすく飾ってくれます。</p>
                                 </div>
                             </Paper>
                         </Container>
