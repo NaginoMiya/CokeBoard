@@ -16,11 +16,11 @@ function Landing(){
                         <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
                     </svg>
                 </div>
-                <h1>
-                <strong>CokeBoard!!!!!!</strong>🥤
+                <h1 className="site-title">
+                    Coke Board🥤
                 </h1>
                 <div class="introduction">
-                    <Container>
+                    <Container className="introduction-text">
                         <h2>画面を有効に使える新しいメモ帳</h2>
                         <p>アイデアを出すとき、メモ全体を1つの画面に表示したいと思ったことはありませんか。</p>
                         <p>Coke Boardでは8個に分割されたメモ領域により、</p>
