@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import firebase, {db} from './Firebase';
-import Landing from './Landing';
-import ButtonAppBar from './ApplicationBar';
+import Landing from './LandingPage/LandingPage';
+import LandingPage from './LandingPage/LandingPage';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ButtonAppBar />
-    <Landing />
+    <LandingPage />
   </React.StrictMode>,
   document.getElementById('root')
 );
