@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import SignIn from './LandingPage/Components/SignIn';
 import React from 'react';
+
 import LandingPage from './LandingPage/LandingPage';
+import MainPage from './MainPage/MainPage';
 
 
 function App() {
@@ -12,7 +14,10 @@ function App() {
 
   return (
     <div className="App">
-      <LandingPage setUid={setUid} />
+      {(() => {
+        if(uid == null) return <LandingPage setUid={setUid} />;
+        else return <MainPage uid={uid} />;
+      })()}
     </div>
   );
 }
