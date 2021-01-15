@@ -6,20 +6,19 @@ import Typography from '@material-ui/core/Typography';
 import './ApplicationBar.css';
 import SignIn from './SignIn';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
+    display: "flex",
     flexGrow: 1,
   },
   toolbar: {
     color: "#fffafa",
     backgroundColor: "#284450e0",
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
     color: "#fffafa",
+    textAlign: "left",
   },
 }));
 
@@ -28,7 +27,7 @@ export default function ButtonAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" className={classes.title}>
             🥤Coke Board
