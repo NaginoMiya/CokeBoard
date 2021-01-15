@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Hello from './Hello';
 import reportWebVitals from './reportWebVitals';
+import firebase, {db} from './Firebase';
+import Landing from './Landing';
+import ButtonAppBar from './ApplicationBar';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    <Hello />
+    <ButtonAppBar />
+    <Landing />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,0 +1,24 @@
+* {
+    color:  #284458E0;
+}
+
+.paper-components {
+    padding: 5% 5%;
+    height: 75%;
+}
+
+.paper-components p{
+    font-size: 1rem;
+}
+
+.paper-components h3{
+    margin-bottom: 20px;
+}
+
+.paper-text {
+    margin-bottom: 10px;
+}
+
+.glasses {
+    width: 75%;
+}
