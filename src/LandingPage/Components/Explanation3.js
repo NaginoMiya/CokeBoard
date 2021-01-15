@@ -1,17 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Paper, Grid} from '@material-ui/core/';
+import {Paper, Grid, Container} from '@material-ui/core/';
 import './Explanation.css';
 import imageIcon from './image.svg';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
+      marginTop: "20px",
+      display: 'inline-block',
       flexWrap: 'wrap',
       '& > *': {
-        margin: theme.spacing(1),
-        width: theme.spacing('auto'),
-        height: theme.spacing('auto'),
+        margin: theme.spacing(6),
       },
     },
 }));
@@ -20,9 +19,9 @@ export default function SimplePaper() {
     const classes = useStyles();
   
     return (
-        <div class="explan-box">
-            <div className={classes.root} width="75%">
-                <Grid container spacing={2}>
+        <Container maxWidth="xl">
+            <div className={classes.root}>
+                <Grid container spacing={2} justify="center">
                     <Grid item xl={7}>
                         <Paper elevation={10} className="paper-components">
                             <h3 className="paper-title">作ったメモは一枚の画像やpdfに</h3>
@@ -34,10 +33,10 @@ export default function SimplePaper() {
                         </Paper>
                     </Grid>
                     <Grid item xl={5}>
-                        <img src={imageIcon} className="image-icon" alt="Image-icon" />
+                        <img src={imageIcon} className="image-icon" alt="icon" />
                     </Grid>
                 </Grid>
             </div>
-        </div>
+        </Container>
     );
 }

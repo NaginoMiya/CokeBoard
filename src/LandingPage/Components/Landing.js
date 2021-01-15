@@ -1,6 +1,6 @@
 import './Landing.css';
 import SignInScreen from './SignInScreen';
-import Grid from '@material-ui/core/Grid';
+import {Grid, Container} from '@material-ui/core/';
 import Explanation1 from './Explanation1';
 import Explanation2 from './Explanation2';
 import Explanation3 from './Explanation3';
@@ -20,14 +20,17 @@ function Landing(){
                 <strong>CokeBoard!!!!!!</strong>🥤
                 </h1>
                 <div class="introduction">
-                    <h2>画面を有効に使える新しいメモ帳</h2>
-                    <p>アイデアを出すとき、メモ全体を1つの画面に表示したいと思ったことはありませんか。</p>
-                    <p>Coke Boardでは8個に分割されたメモ領域により、チームや個人のアイデアを一目で把握できます。</p>
-                    <Grid container spacing={2} id="loginButton" className="login-button">
-                        <Grid item xl={8}>
+                    <Container>
+                        <h2>画面を有効に使える新しいメモ帳</h2>
+                        <p>アイデアを出すとき、メモ全体を1つの画面に表示したいと思ったことはありませんか。</p>
+                        <p>Coke Boardでは8個に分割されたメモ領域により、</p>
+                        <p>チームや個人のアイデアを一目で把握できます。</p>
+                    </Container>
+                    <Grid container spacing={2} id="loginButton" className="login-button" justify="center">
+                        <Grid item xl={7}>
                             <p class="near-login-button">お持ちのアカウントですぐに始めることができます</p>
                         </Grid>
-                        <Grid item xl>
+                        <Grid item xl={5}>
                             <SignInScreen/>
                         </Grid>
                     </Grid>

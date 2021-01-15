@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import reportWebVitals from '../reportWebVitals';
 import Landing from './Components/Landing';
 import ButtonAppBar from './Components/ApplicationBar';

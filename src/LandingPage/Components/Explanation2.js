@@ -1,17 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {Paper, Grid} from '@material-ui/core/';
+import {Paper, Grid, Container} from '@material-ui/core/';
 import './Explanation.css';
 import mdicon from './markdown.svg';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
+      display: 'inline-block',
       flexWrap: 'wrap',
       '& > *': {
-        margin: theme.spacing(1),
-        width: theme.spacing('auto'),
-        height: theme.spacing('auto'),
+        margin: theme.spacing(6),
       },
     },
 }));
@@ -20,23 +18,27 @@ export default function SimplePaper() {
     const classes = useStyles();
   
     return (
-        <div class="explan-box">
-            <div className={classes.root} width="75%">
-                <Grid container spacing={2}>
+        <Container maxWidth="xl">
+            <div className={classes.root}>
+                <Grid container spacing={2} justify="center">
                     <Grid item xl={5}>
-                        <img src={mdicon} className="md-icon" alt="Markdown-icon" />
+                        <Container>
+                            <img src={mdicon} className="md-icon" alt="Markdown-icon" />
+                        </Container>
                     </Grid>
                     <Grid item xl={7}>
-                        <Paper elevation={10} className="paper-components">
-                            <h3 className="paper-title">嬉しいMarkdown対応</h3>
-                            <div class="paper-text">
-                                <p>たかがメモといっても見やすさは大切です。</p>
-                                <p>Coke BoardではMarkdown入力に対応しており、メモを見やすく飾ってくれます。</p>
-                            </div>
-                        </Paper>
+                        <Container width="100%">
+                            <Paper elevation={10} className="paper-components" >
+                                <h3 className="paper-title">嬉しいMarkdown対応</h3>
+                                <div class="paper-text">
+                                    <p>たかがメモといっても見やすさは大切です。</p>
+                                    <p>Coke BoardではMarkdown入力に対応しており、メモを見やすく飾ってくれます。</p>
+                                </div>
+                            </Paper>
+                        </Container>
                     </Grid>
                 </Grid>
             </div>
-        </div>
+        </Container>
     );
 }
