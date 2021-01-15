@@ -24,8 +24,7 @@
 }
 
 .custom-shape-divider-top-1610627084 {
-    position: absolute;
-    top: 64px;
+    top: 0px;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -45,4 +44,10 @@
 
 .near-login-button {
     color: #f44336; 
+}
+
+.explanation {
+    margin-top: 15%;
+    margin-left: 10px;
+    margin-right: 10px;
 }
