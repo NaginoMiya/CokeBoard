@@ -2,36 +2,44 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import Button from '@material-ui/core/Button';
 
-class SignIn extends Component {
-  state = {
-    loading: true,
-    user: null
-  };
 
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      this.setState({
-        loading: false,
-        user: user
+function SignIn(props) {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [user, setUser] = React.useState('');
+
+  React.useEffect(() => {
+    (async () => {
+      await firebase.auth().onAuthStateChanged(user => {
+        setIsLoading(false);
+        setUser(user);
+
+        //親のstateであるuidにユーザー名をセット
+        if(user != null) props.setUid(user.uid);
       });
-    });
-  }
 
-  logout() {
+    })()
+  })
+
+  const logout = () => {
     firebase.auth().signOut();
   }
 
-  render() {
-    if (this.state.loading) return <div>loading</div>;
-    return (
-      <div>
-        {this.state.user ?
-          (<Button href="#loginButton" variant="contained" color="secondary" disableElevation> Start Memo </Button>) :
-          (<Button href="#loginButton" variant="contained" color="secondary" disableElevation> Login </Button>)
+  return (
+    <div className="SignIn">
+      {(() => {
+        if(isLoading) return <div>Now Loading</div>;
+        else {
+          return(
+            <div>
+              {user ?
+                (<Button href="#loginButton" variant="contained" color="secondary" disableElevation> Start Memo </Button>) :
+                (<Button href="#loginButton" variant="contained" color="secondary" disableElevation> Login </Button>)
+              }
+            </div>
+          );
         }
-      </div>
-    );
-  }
+      })()}
+    </div>
+  )
 }
-
 export default SignIn;
