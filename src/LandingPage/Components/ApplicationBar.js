@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -31,9 +31,9 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" className={classes.title}>
-           🥤Coke Board
+            🥤Coke Board
           </Typography>
-          <SignIn />
+          <SignIn setUid={props.setUid} />
         </Toolbar>
       </AppBar>
     </div>

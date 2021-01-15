@@ -3,10 +3,10 @@ import reportWebVitals from '../reportWebVitals';
 import Landing from './Components/Landing';
 import ButtonAppBar from './Components/ApplicationBar';
 
-export default function LandingPage(){
+export default function LandingPage(props){
   return(
     <div className="LandingPage">
-      <ButtonAppBar />
+      <ButtonAppBar setUid={props.setUid} />
       <Landing />
     </div>
   )
