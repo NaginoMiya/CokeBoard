@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   toolbar: {
-    color: "#ffffff",
+    color: "#fffafa",
     backgroundColor: "#284450e0",
   },
   menuButton: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    color: "#ffffff",
+    color: "#fffafa",
   },
 }));
 

@@ -1,7 +1,9 @@
 import './Landing.css';
 import SignInScreen from './SignInScreen';
 import Grid from '@material-ui/core/Grid';
-import Explanation from './Explanation';
+import Explanation1 from './Explanation1';
+import Explanation2 from './Explanation2';
+import Explanation3 from './Explanation3';
 
 function Landing(){
     return(
@@ -31,11 +33,12 @@ function Landing(){
                     </Grid>
                 </div>
                 <div class = "explanation">
-                    <Explanation />
+                    <Explanation1 />
+                    <Explanation2 />
+                    <Explanation3 />
                 </div>
             </body>
         </div>
-        
     )
 }
 
