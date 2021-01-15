@@ -7,6 +7,8 @@ import Landing from './LandingPage/LandingPage';
 import LandingPage from './LandingPage/LandingPage';
 import App from './App';
 
+document.title = "Coke Board 🥤"
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
