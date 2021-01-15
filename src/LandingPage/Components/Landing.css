@@ -9,7 +9,7 @@
 }
 
 .Landing-header {
-    background-color: white;
+    background-color: #fffafa;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@
 }
 
 .explanation {
-    margin-top: 15%;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
 }

@@ -2,6 +2,10 @@
     color:  #284458E0;
 }
 
+.explan-box {
+    margin-top: 100px;
+}
+
 .paper-components {
     padding: 5% 5%;
     height: 75%;
@@ -12,13 +16,27 @@
 }
 
 .paper-components h3{
-    margin-bottom: 20px;
+    margin-bottom: 5%;
 }
 
 .paper-text {
+    margin-top: 10%;
     margin-bottom: 10px;
 }
 
 .glasses {
+    margin-top: 10px;
     width: 75%;
+}
+
+.md-icon {
+    display: block;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-icon {
+    padding-top: 50px;
+    height: 75%;
 }
