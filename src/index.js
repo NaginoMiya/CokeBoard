@@ -5,10 +5,11 @@ import reportWebVitals from './reportWebVitals';
 import firebase, {db} from './Firebase';
 import Landing from './LandingPage/LandingPage';
 import LandingPage from './LandingPage/LandingPage';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LandingPage />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
