@@ -5,6 +5,7 @@ import firebase, {db} from '../Firebase';
 import MiniMemo from './Components/MiniMemo';
 import Memo from './Components/Memo';
 import MenuBar from './Components/MenuBar';
+import MiniMemoBundle from './Components/MiniMemoBundle';
 
 function MainPage(props) {
     /*
@@ -17,7 +18,7 @@ function MainPage(props) {
     //左側に並んでるメモのリスト
     const [Memos, setMemos] = React.useState([]);
 
-    //現在選んでるメモが作成された時間を管理するstate
+    //現在選んでるメモを管理するstate
     const [CurrentMemo, setCurrentMemo] = React.useState(null);
 
     // Loadingを判定する変数
@@ -33,7 +34,7 @@ function MainPage(props) {
             let allDocumentList = await docRef.get().then(snapshot => {
                 snapshot.forEach(doc => {
                     const docData = doc.data();
-                    tmp.push({MemoName : doc.id, CreatedDate : docData.CreatedDate, MiniMemo_A : docData.MiniMemo_A});
+                    tmp.push({MemoName : doc.id, CreatedDate : docData.CreatedDate, MiniMemos : docData.MiniMemos});
                 });
             }).catch(err => {
                 console.log('Error getting documents', err);
@@ -51,11 +52,9 @@ function MainPage(props) {
     return (
         <div className="MainPage">
             <div> Uid = <Test uid={props.uid} /> </div>
-
+            
             <div>
-                <h2>Markdown = </h2>
-                {isLoading ? <div>Loading</div> : <MiniMemo Markdown={Memos} />}
-                <h2> -------- </h2>
+                {(CurrentMemo != null) ? <MiniMemoBundle uid={props.uid} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} Memos={Memos} setMemos={setMemos} /> : "Please Select Memo."}
             </div>
             
             <div>CurrentMemo = {(CurrentMemo != null) ? CurrentMemo.CreatedDate : "xxx" }</div>
