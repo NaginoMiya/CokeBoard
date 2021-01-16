@@ -29,7 +29,7 @@ function RemoveMemoButton(props){
     const classes = useStyles();
 
     const removeMemo = React.useCallback(() => {
-        if((props.Memos).length == 0){
+        if((props.Memos).length == 0 || props.CurrentMemo == null){
             //エラーハンドリング
             return;
         }
@@ -48,7 +48,7 @@ function RemoveMemoButton(props){
 
         props.setCurrentMemo(null);
     
-        let deleteDoc = db.collection(props.uid).doc(DocmentName[0].MemoName).delete();
+        let deleteDoc = db.collection(props.uid).doc(String(DocmentName[0].CreatedDate)).delete();
     });
 
     return (
