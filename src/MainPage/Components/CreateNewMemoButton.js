@@ -47,9 +47,9 @@ function CreateNewMemoButton(props) {
     //メモを作成するコールバック関数
     const createMemo = React.useCallback((collectionName) => {
         var docRef = db.collection(collectionName).doc(textareaRef_MemoName.current.value);
-        docRef.set({CreatedDate : new Date().getTime(), MiniMemo_A : ''});
+        docRef.set({CreatedDate : new Date().getTime(), MiniMemos : ['', '', '', '', '', '', '', '']});
 
-        props.setMemos([...props.Memos, {MemoName : textareaRef_MemoName.current.value, CreatedDate : new Date().getTime(), MiniMemo_A : '新規作成のメモです.'}]);
+        props.setMemos([...props.Memos, {MemoName : textareaRef_MemoName.current.value, CreatedDate : new Date().getTime(), MiniMemos : ['', '', '', '', '', '', '', '']}]);
     });
 
 
