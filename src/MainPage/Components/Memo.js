@@ -12,9 +12,10 @@ const ColorButton = withStyles((theme) => ({
         },
         '& > *': {
             textOverflow: "ellipsis",
-        }
+        },
+        textTransform: 'none', //大文字に変換されるのを防ぎます.
     },
-  }))(Button);
+}))(Button);
 
 function Memo(props){
     const M = props.Memo;
