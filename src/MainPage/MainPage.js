@@ -25,6 +25,9 @@ function MainPage(props) {
     // Loadingを判定する変数
     const [isLoading, setIsLoading] = React.useState(true);
 
+    //画面上部に出ているタイトルを管理
+    const [Title, setTitle] = React.useState('xxx');
+
     //一番最初にfirestoreからデータを取ってきてstateに入れる
     React.useEffect(() => {
         (async () => {
@@ -56,12 +59,12 @@ function MainPage(props) {
                 {/*<div> Uid = <Test uid={props.uid} /> </div>*/}
 
                 {/* 左側のメニューバー */}
-                <div>{isLoading ? <div>Loading</div> :  <MenuBar uid={props.uid} Memos={Memos} setMemos={setMemos} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} />}</div>
+                <div>{isLoading ? <div>Loading</div> :  <MenuBar uid={props.uid} Memos={Memos} setMemos={setMemos} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} setTitle={setTitle} />}</div>
 
                 <LogoutButton setUid={props.setUid} />
             </Grid>
             <Grid item xs={10} className="MemoScreen" spacing={0}>
-                <h1>{(CurrentMemo == null || Memos.length == 0) ? "xxx" : CurrentMemo.MemoName}</h1>
+                <h1>{(CurrentMemo == null || Memos.length == 0) ? "xxx" : Title}</h1>
                 {(CurrentMemo == null || Memos.length == 0) ? <PleaseSelectMemo /> : <MiniMemoBundle uid={props.uid} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} Memos={Memos} setMemos={setMemos} />}
             </Grid>
         </Grid>
