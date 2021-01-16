@@ -45,6 +45,8 @@ function RemoveMemoButton(props){
         }
 
         props.setMemos(tmp);
+
+        props.setCurrentMemo(null);
     
         let deleteDoc = db.collection(props.uid).doc(DocmentName[0].MemoName).delete();
     });
