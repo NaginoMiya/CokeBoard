@@ -1,16 +1,12 @@
 import React from 'react';
 
-import EditButton from './EditButton'
+import EditButton from './MiniMemo'
 
 import MiniMemo from './MiniMemo';
 
 //test用です自由に削除してください
 function Test(props) {
     const [count, setCount] = React.useState(0);
-
-    const Add = React.useCallback(() => {
-        setCount(count + 1);
-    });
 
     return (
         <div className="test">
