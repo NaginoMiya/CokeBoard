@@ -3,12 +3,18 @@ import firebase, {db} from '../../Firebase';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-//IconButton
-import IconButton from '@material-ui/core/IconButton';
+//Button
+import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const useStyles = makeStyles((theme) => ({
+    button: {
+        width: '80%',
+        '& > *': {
+            color: '#fffafa',
+        }
+    },
     //IconButtonsのスタイルです.
     root: {
         '& > *': {
@@ -45,9 +51,16 @@ function RemoveMemoButton(props){
 
     return (
         <div className={classes.root}>
-            <IconButton aria-label="delete" onClick={removeMemo}>
-                CurrentMemoを削除<DeleteIcon />
-            </IconButton>
+            <Button
+            aria-label="delete"
+            onClick={removeMemo}
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            startIcon={<DeleteIcon />}
+            >
+                Delete Current Memo
+            </Button>
         </div>
     );
 }

@@ -1,4 +1,20 @@
 import React from 'react';
+import { withStyles, Button, Box } from '@material-ui/core/';
+
+const ColorButton = withStyles((theme) => ({
+    root: {
+        color: theme.palette.getContrastText('#fffafa'),
+        margin: '4px',
+        backgroundColor: '#fffafa',
+        width: '80%',
+        '&:hover': {
+            backgroundColor: '#cccccc',
+        },
+        '& > *': {
+            textOverflow: "ellipsis",
+        }
+    },
+  }))(Button);
 
 function Memo(props){
     const M = props.Memo;
@@ -9,9 +25,10 @@ function Memo(props){
     });
 
     return (
-        <div className="contents">
-            <button onClick={handler}> {M.CreatedDate} : {M.MiniMemo_A} : MemoName={M.MemoName} </button>
-        </div>
+        <Box component="div">
+            {/*  {M.CreatedDate} : {M.MiniMemo_A} : MemoName= */}
+            <ColorButton variant="contained" onClick={handler}> {M.MemoName} </ColorButton>
+        </Box>
     );
 }
 export default Memo;

@@ -1,4 +1,6 @@
 import firebase from 'firebase';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Button from '@material-ui/core/Button';
 
 function LogoutButton(props){
     
@@ -8,9 +10,7 @@ function LogoutButton(props){
     }
 
     return (
-        <div>
-            <button onClick={logout}> Logout!!! </button>
-        </div>
+        <Button variant="contained" onClick={logout} endIcon={<ExitToAppIcon/>}>Logout</Button>
     );
 }
 export default LogoutButton;

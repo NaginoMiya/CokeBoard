@@ -9,7 +9,10 @@ import Fade from '@material-ui/core/Fade';
 
 //IconButton
 import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+
+//MiniMemo全体
+import {Card, Grid} from '@material-ui/core/';
 
 //markdown関係
 import ReactMarkdown from 'react-markdown';
@@ -31,9 +34,29 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 4, 3),
     },
     //IconButtonsのスタイルです.
+    edit: {
+        display: 'inline-block',
+    },
+    // Markdownのスタイル
+    markdown: {
+        paddingLeft: '15px',
+        paddingRight: '15px',
+        paddingBottom: '15px',
+        '& > *': {
+            textAlign: 'left',
+        },
+        // フォントサイズの変更（保留）
+        '& > p': {
+            fontSize: "15px",
+        }
+    },
     root: {
         '& > *': {
-        margin: theme.spacing(1),
+            marginTop: theme.spacing(1),
+            marginBottom: theme.spacing(1),
+            marginLeft: theme.spacing(2),
+            marginRight: theme.spacing(1),
+            height: '45.5vh',
         },
     },
 }));
@@ -99,42 +122,41 @@ function MiniMemo(props) {
 
 
     return (
-        <div>
-
-            
-
-            {/*  Editボタンです. */}
-            <div className={classes.root}>
-                <IconButton aria-label="delete" onClick={handleOpen}>
-                    Editボタン{props.idx}<DeleteIcon />
-                </IconButton>
-            </div>
-
-            {/* Markdownです. */}
-            <ReactMarkdown plugins={[gfm, breaks]} children={props.CurrentMemo.MiniMemos[props.idx]} />
-
-            {/* Modalです. */}
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                timeout: 500,
-                }}
-                disableBackdropClick={true}
-            >
-                <Fade in={open}>
-                <div className={classes.paper}>
-                    <textarea ref={textareaRef_md}>{props.CurrentMemo.MiniMemos[props.idx]}</textarea>
-                    <button onClick={handleClose}> SAVE </button>
+        <Grid item xs={3} className={classes.root}>
+            <Card className={classes.card} raised={true}>
+                {/*  Editボタンです. */}
+                <div className={classes.edit}>
+                    <IconButton aria-label="delete" onClick={handleOpen}>
+                        Memo{props.idx + 1}<EditIcon />
+                    </IconButton>
                 </div>
-                </Fade>
-            </Modal>
-        </div>
+
+                {/* Markdownです. */}
+                <ReactMarkdown plugins={[gfm, breaks]} children={props.CurrentMemo.MiniMemos[props.idx]} className={classes.markdown}/>
+
+                {/* Modalです. */}
+                <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    className={classes.modal}
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                    timeout: 500,
+                    }}
+                    disableBackdropClick={true}
+                >
+                    <Fade in={open}>
+                    <div className={classes.paper}>
+                        <textarea ref={textareaRef_md}>{props.CurrentMemo.MiniMemos[props.idx]}</textarea>
+                        <button onClick={handleClose}> SAVE </button>
+                    </div>
+                    </Fade>
+                </Modal>
+            </Card>
+        </Grid>
     );
 }
 export default MiniMemo;

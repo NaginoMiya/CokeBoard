@@ -7,6 +7,8 @@ import Memo from './Components/Memo';
 import MenuBar from './Components/MenuBar';
 import MiniMemoBundle from './Components/MiniMemoBundle';
 import LogoutButton from './Components/LogoutButton';
+import './MainPage.css';
+import Grid from '@material-ui/core/Grid';
 
 function MainPage(props) {
     /*
@@ -51,20 +53,20 @@ function MainPage(props) {
 
 
     return (
-        <div className="MainPage">
-            <div> Uid = <Test uid={props.uid} /> </div>
-            
-            <div>
+        <Grid container className="MainPage" spacing={0}>
+            <Grid item  xs={2} className="MenuBar">
+                {/*<div> Uid = <Test uid={props.uid} /> </div>*/}
+
+                {/* 左側のメニューバー */}
+                <div>{isLoading ? <div>Loading</div> :  <MenuBar uid={props.uid} Memos={Memos} setMemos={setMemos} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} />}</div>
+
+                <LogoutButton setUid={props.setUid} />
+            </Grid>
+            <Grid item xs={10} className="MemoScreen" spacing={0}>
+                <h1>{(CurrentMemo != null) ? CurrentMemo.MemoName : "xxx" }</h1>
                 {(CurrentMemo != null) ? <MiniMemoBundle uid={props.uid} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} Memos={Memos} setMemos={setMemos} /> : "Please Select Memo."}
-            </div>
-            
-            <div>CurrentMemo = {(CurrentMemo != null) ? CurrentMemo.CreatedDate : "xxx" }</div>
-
-            {/* 左側のメニューバー */}
-            <div>{isLoading ? <div>Loading</div> :  <MenuBar uid={props.uid} Memos={Memos} setMemos={setMemos} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} />}</div>
-
-            <LogoutButton setUid={props.setUid} />
-        </div>
+            </Grid>
+        </Grid>
     );
 }
 

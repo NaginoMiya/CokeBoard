@@ -1,17 +1,19 @@
 import React from 'react';
 import firebase, {db} from '../../Firebase';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 
 //Modal
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import TextField from '@material-ui/core/TextField';
 
-//IconButton
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+//Button
+import Button from '@material-ui/core/Button';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import { green } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +37,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const ColorButton = withStyles((theme) => ({
+    root: {
+      width: '80%',
+      color: theme.palette.getContrastText(green[500]),
+      backgroundColor: green[500],
+      '&:hover': {
+        backgroundColor: green[700],
+      },
+      '& > *': {
+        color: '#fffafa',
+      }
+    },
+  }))(Button);
 
 function CreateNewMemoButton(props) {
     const db = firebase.firestore();
@@ -74,10 +89,16 @@ function CreateNewMemoButton(props) {
         <div>
             {/*  新規作成ボタンです. 適当に変えてください */}
             <div className={classes.root}>
-                <IconButton aria-label="delete" onClick={handleOpen}>
-                    新規作成
-                    <DeleteIcon />
-                </IconButton>
+                <ColorButton
+                aria-label="delete"
+                onClick={handleOpen}
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                startIcon={<AddCircleOutlineIcon />}
+                >
+                Add New Memo
+                </ColorButton>
             </div>
 
 
@@ -98,7 +119,7 @@ function CreateNewMemoButton(props) {
                 <Fade in={open}>
                 <div className={classes.paper}>
                     <textarea ref={textareaRef_MemoName}></textarea>
-                    <button onClick={handleClose}> Close </button>
+                    <button onClick={handleClose}> SAVE </button>
                 </div>
                 </Fade>
             </Modal>

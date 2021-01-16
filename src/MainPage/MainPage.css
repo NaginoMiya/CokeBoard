@@ -1,0 +1,31 @@
+.MainPage {
+    background-color: rosybrown;
+    height: 100vh;
+}
+
+.MainPage > *{
+    display: inline-block;
+}
+
+.MenuBar {
+    background-color:#284458E0;
+    width: 20%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.MenuBar > * {
+    color: #fffafa;
+}
+
+.MemoScreen {
+    background-color: #fffafa;
+    width: 80%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.MemoScreen > h1 {
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
