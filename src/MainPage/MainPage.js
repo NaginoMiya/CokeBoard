@@ -6,6 +6,7 @@ import MiniMemo from './Components/MiniMemo';
 import Memo from './Components/Memo';
 import MenuBar from './Components/MenuBar';
 import MiniMemoBundle from './Components/MiniMemoBundle';
+import LogoutButton from './Components/LogoutButton';
 
 function MainPage(props) {
     /*
@@ -58,8 +59,11 @@ function MainPage(props) {
             </div>
             
             <div>CurrentMemo = {(CurrentMemo != null) ? CurrentMemo.CreatedDate : "xxx" }</div>
+
             {/* 左側のメニューバー */}
             <div>{isLoading ? <div>Loading</div> :  <MenuBar uid={props.uid} Memos={Memos} setMemos={setMemos} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} />}</div>
+
+            <LogoutButton setUid={props.setUid} />
         </div>
     );
 }
