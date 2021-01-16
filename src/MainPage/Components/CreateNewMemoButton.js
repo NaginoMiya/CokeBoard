@@ -125,7 +125,7 @@ function CreateNewMemoButton(props) {
                 <Fade in={open}>
                     <Grid container className={classes.paper} spacing={4}>
                         <Grid item xs={10}>
-                            <input ref={textareaRef_MemoName} className={classes.input} placeholder="メモタイトル"></input>
+                            <input ref={textareaRef_MemoName} className={classes.input} placeholder="Memo Title"></input>
                         </Grid>
                         <Grid item xs={2}>
                             <ColorButton

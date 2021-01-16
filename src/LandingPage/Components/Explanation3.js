@@ -24,7 +24,7 @@ export default function SimplePaper() {
                 <Grid container spacing={2} justify="center">
                     <Grid item xl={7}>
                         <Paper elevation={10} className="paper-components">
-                            <h3 className="paper-title">作ったメモは一枚の画像やpdfに</h3>
+                            <h3 className="paper-title">作ったメモは一枚の画像やpdfに(開発中)</h3>
                             <div class="paper-text">
                                 <p>みんなで作ったメモは最終的に全員が見える場所に共有したくなることでしょう。</p>
                                 <p>その際に一々サイトにアクセスし直したり、</p>

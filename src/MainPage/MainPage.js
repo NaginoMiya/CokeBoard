@@ -1,14 +1,12 @@
 import React from 'react';
-import Test from './Components/Test'
 
-import firebase, {db} from '../Firebase';
-import MiniMemo from './Components/MiniMemo';
-import Memo from './Components/Memo';
+import firebase from '../Firebase';
 import MenuBar from './Components/MenuBar';
 import MiniMemoBundle from './Components/MiniMemoBundle';
 import LogoutButton from './Components/LogoutButton';
 import './MainPage.css';
 import Grid from '@material-ui/core/Grid';
+import PleaseSelectMemo from './Components/PleaseSelectMemo';
 
 function MainPage(props) {
     /*
@@ -64,7 +62,7 @@ function MainPage(props) {
             </Grid>
             <Grid item xs={10} className="MemoScreen" spacing={0}>
                 <h1>{(CurrentMemo == null || Memos.length == 0) ? "xxx" : CurrentMemo.MemoName}</h1>
-                {(CurrentMemo == null || Memos.length == 0) ? "Please Select Memo." : <MiniMemoBundle uid={props.uid} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} Memos={Memos} setMemos={setMemos} />}
+                {(CurrentMemo == null || Memos.length == 0) ? <PleaseSelectMemo /> : <MiniMemoBundle uid={props.uid} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} Memos={Memos} setMemos={setMemos} />}
             </Grid>
         </Grid>
     );
