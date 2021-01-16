@@ -44,17 +44,17 @@ const useStyles = makeStyles((theme) => ({
 
 const ColorButton = withStyles((theme) => ({
     root: {
-      width: '80%',
-      color: theme.palette.getContrastText(green[500]),
-      backgroundColor: green[500],
-      '&:hover': {
-        backgroundColor: green[700],
-      },
-      '& > *': {
-        color: '#fffafa',
-      }
-    },
-  }))(Button);
+            width: '80%',
+            color: theme.palette.getContrastText(green[500]),
+            backgroundColor: green[500],
+            '&:hover': {
+                backgroundColor: green[700],
+            },
+            '& > *': {
+                color: '#fffafa',
+            }
+        },
+}))(Button);
 
 function CreateNewMemoButton(props) {
     const db = firebase.firestore();
@@ -66,10 +66,11 @@ function CreateNewMemoButton(props) {
 
     //メモを作成するコールバック関数
     const createMemo = React.useCallback((collectionName) => {
-        var docRef = db.collection(collectionName).doc(textareaRef_MemoName.current.value);
-        docRef.set({CreatedDate : new Date().getTime(), MiniMemos : ['', '', '', '', '', '', '', '']});
+        let date = new Date().getTime();
+        var docRef = db.collection(collectionName).doc(String(date));
+        docRef.set({MemoName : textareaRef_MemoName.current.value, CreatedDate : date, MiniMemos : ['', '', '', '', '', '', '', '']});
 
-        props.setMemos([...props.Memos, {MemoName : textareaRef_MemoName.current.value, CreatedDate : new Date().getTime(), MiniMemos : ['', '', '', '', '', '', '', '']}]);
+        props.setMemos([...props.Memos, {MemoName : textareaRef_MemoName.current.value, CreatedDate : date, MiniMemos : ['', '', '', '', '', '', '', '']}]);
     });
 
 

@@ -37,7 +37,7 @@ function MainPage(props) {
             let allDocumentList = await docRef.get().then(snapshot => {
                 snapshot.forEach(doc => {
                     const docData = doc.data();
-                    tmp.push({MemoName : doc.id, CreatedDate : docData.CreatedDate, MiniMemos : docData.MiniMemos});
+                    tmp.push({MemoName : docData.MemoName, CreatedDate : docData.CreatedDate, MiniMemos : docData.MiniMemos});
                 });
             }).catch(err => {
                 console.log('Error getting documents', err);
