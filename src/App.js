@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       {(() => {
         if(uid == null) return <LandingPage setUid={setUid} />;
-        else return <MainPage uid={uid} />;
+        else return <MainPage setUid={setUid} uid={uid} />;
       })()}
     </div>
   );
