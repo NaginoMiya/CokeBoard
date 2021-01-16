@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase, {db} from '../../Firebase';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 //Modal
 import Modal from '@material-ui/core/Modal';
@@ -8,8 +8,10 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
 //IconButton
-import IconButton from '@material-ui/core/IconButton';
+import {IconButton, Button} from '@material-ui/core/';
 import EditIcon from '@material-ui/icons/Edit';
+import { green } from '@material-ui/core/colors';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 //MiniMemo全体
 import {Card, Grid} from '@material-ui/core/';
@@ -32,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
+        width: '30vw',
     },
     //IconButtonsのスタイルです.
     edit: {
@@ -44,11 +47,21 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: '15px',
         '& > *': {
             textAlign: 'left',
+            margin: '0px',
+            marginBottom: '3px',
+            marginTop: '2px',
         },
         // フォントサイズの変更（保留）
         '& > p': {
             fontSize: "15px",
+            margin: '0',
         }
+    },
+    textBox: {
+        height: '60vh',
+        width: '100%',
+        alignItems: 'center',
+        fontSize: '15px',
     },
     root: {
         '& > *': {
@@ -57,9 +70,24 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: theme.spacing(2),
             marginRight: theme.spacing(1),
             height: '45.5vh',
+            overflowY: 'scroll',
         },
     },
 }));
+
+const ColorButton = withStyles((theme) => ({
+    root: {
+        width: '100%',
+        color: theme.palette.getContrastText(green[500]),
+        backgroundColor: green[500],
+        '&:hover': {
+            backgroundColor: green[700],
+        },
+        '& > *': {
+            color: '#fffafa',
+        }
+    },
+  }))(Button);
 
 function MiniMemo(props) {
     const db = firebase.firestore();
@@ -127,7 +155,7 @@ function MiniMemo(props) {
                 {/*  Editボタンです. */}
                 <div className={classes.edit}>
                     <IconButton aria-label="delete" onClick={handleOpen}>
-                        Memo{props.idx + 1}<EditIcon />
+                        MEMO{props.idx + 1}<EditIcon />
                     </IconButton>
                 </div>
 
@@ -149,10 +177,21 @@ function MiniMemo(props) {
                     disableBackdropClick={true}
                 >
                     <Fade in={open}>
-                    <div className={classes.paper}>
-                        <textarea ref={textareaRef_md}>{props.CurrentMemo.MiniMemos[props.idx]}</textarea>
-                        <button onClick={handleClose}> SAVE </button>
-                    </div>
+                        <Grid container className={classes.paper} alignItems="stretch" direction="column" spacing={0}>
+                            <Grid item xs={12}>
+                                <textarea ref={textareaRef_md} className={classes.textBox}>{props.CurrentMemo.MiniMemos[props.idx]}</textarea>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <ColorButton
+                                onClick={handleClose}
+                                variant="contained"
+                                color="primary"
+                                endIcon={<ArrowForwardIcon />}
+                                >
+                                    SAVE
+                                </ColorButton>
+                            </Grid>
+                        </Grid>
                     </Fade>
                 </Modal>
             </Card>

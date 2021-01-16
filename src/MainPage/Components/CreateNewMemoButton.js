@@ -7,8 +7,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 //Modal
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import TextField from '@material-ui/core/TextField';
+import {Fade, Grid} from '@material-ui/core/';
 
 //Button
 import Button from '@material-ui/core/Button';
@@ -17,6 +16,11 @@ import { green } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
+    input: {
+        width: '100%',
+        alignItems: 'center',
+        fontSize: '30px',
+    },
     //Modalのスタイルです.
     modal: {
         display: 'flex',
@@ -28,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
+        width: '50%',
     },
     //IconButtonsのスタイルです.
     root: {
@@ -117,10 +122,21 @@ function CreateNewMemoButton(props) {
                 disableBackdropClick={true}
             >
                 <Fade in={open}>
-                <div className={classes.paper}>
-                    <textarea ref={textareaRef_MemoName}></textarea>
-                    <button onClick={handleClose}> SAVE </button>
-                </div>
+                    <Grid container className={classes.paper} spacing={4}>
+                        <Grid item xs={10}>
+                            <input ref={textareaRef_MemoName} className={classes.input} placeholder="メモタイトル"></input>
+                        </Grid>
+                        <Grid item xs={2}>
+                            <ColorButton
+                            onClick={handleClose}
+                            variant="contained"
+                            color="primary"
+                            endIcon={<AddCircleOutlineIcon />}
+                            >
+                            ADD
+                            </ColorButton>
+                        </Grid>
+                    </Grid>
                 </Fade>
             </Modal>
         </div>
