@@ -63,8 +63,8 @@ function MainPage(props) {
                 <LogoutButton setUid={props.setUid} />
             </Grid>
             <Grid item xs={10} className="MemoScreen" spacing={0}>
-                <h1>{(CurrentMemo != null) ? CurrentMemo.MemoName : "xxx" }</h1>
-                {(CurrentMemo != null) ? <MiniMemoBundle uid={props.uid} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} Memos={Memos} setMemos={setMemos} /> : "Please Select Memo."}
+                <h1>{(CurrentMemo == null || Memos.length == 0) ? "xxx" : CurrentMemo.MemoName}</h1>
+                {(CurrentMemo == null || Memos.length == 0) ? "Please Select Memo." : <MiniMemoBundle uid={props.uid} CurrentMemo={CurrentMemo} setCurrentMemo={setCurrentMemo} Memos={Memos} setMemos={setMemos} />}
             </Grid>
         </Grid>
     );
