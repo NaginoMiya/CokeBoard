@@ -16,6 +16,9 @@ import { green } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
+    longtitle: {
+        color: 'red',
+    },
     input: {
         width: '100%',
         alignItems: 'center',
@@ -59,6 +62,8 @@ const ColorButton = withStyles((theme) => ({
 function CreateNewMemoButton(props) {
     const db = firebase.firestore();
     const classes = useStyles();
+
+    const [isLimitOver, setIsLimitOver] = React.useState(false);
     
     //プレースホルダー
     const textareaRef_MemoName = React.useRef('');
@@ -82,11 +87,19 @@ function CreateNewMemoButton(props) {
     };
 
     const handleClose = () => {
+        //40文字を超える場合はエラー
+        if(textareaRef_MemoName.current.value.length > 40){
+            setIsLimitOver(true);
+            return;
+        }
+
         //名前が空白出ないならばメモを作成.
         if(textareaRef_MemoName.current.value != ''){
             createMemo(props.uid);
         }
 
+        //モーダルを閉じた場合はsetIsLimitOverをfalseに設定
+        setIsLimitOver(false);
         setOpen(false);
     };
 
@@ -136,6 +149,9 @@ function CreateNewMemoButton(props) {
                             >
                             ADD
                             </ColorButton>
+                        </Grid>
+                        <Grid item xs={12}>
+                            {isLimitOver ? <h2 className={classes.longtitle}>タイトルが長すぎます.</h2> : null}
                         </Grid>
                     </Grid>
                 </Fade>
