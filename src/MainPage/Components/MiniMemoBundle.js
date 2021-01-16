@@ -4,8 +4,6 @@ import Grid from '@material-ui/core/Grid';
 
 function MiniMemoBundle(props){
 
-    console.log(props.CurrentMemo.MiniMemos);
-
     return (
         <Grid container spacing={0}>
             {/*<p>test = {props.CurrentMemo.MiniMemos[0]}</p>*/}
