@@ -59,6 +59,8 @@ const ColorButton = withStyles((theme) => ({
 function MemoNameChangeButton(props) {
     const db = firebase.firestore();
     const classes = useStyles();
+
+    const [isLimitOver, setIsLimitOver] = React.useState(false);
     
     //プレースホルダー
     const textareaRef_MemoName = React.useRef('');
@@ -103,10 +105,20 @@ function MemoNameChangeButton(props) {
     };
 
     const handleClose = () => {
-        setMemoName();
-        setMemos();
-        updateDB();
+        //40文字を超える場合はエラー
+        if(textareaRef_MemoName.current.value.length > 40){
+            setIsLimitOver(true);
+            return;
+        }
 
+        //名前が空白出ないならばメモを作成.
+        if(textareaRef_MemoName.current.value != ''){
+            setMemoName();
+            setMemos();
+            updateDB();
+        }
+
+        setIsLimitOver(false);
         setOpen(false);
     };
 
@@ -156,6 +168,9 @@ function MemoNameChangeButton(props) {
                             >
                             Save!
                             </ColorButton>
+                        </Grid>
+                        <Grid item xs={12}>
+                            {isLimitOver ? <h2 className={classes.longtitle}>タイトルが長すぎます.</h2> : null}
                         </Grid>
                     </Grid>
                 </Fade>
