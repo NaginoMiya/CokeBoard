@@ -59,6 +59,8 @@ const ColorButton = withStyles((theme) => ({
 function CreateNewMemoButton(props) {
     const db = firebase.firestore();
     const classes = useStyles();
+
+    const [isLimitOver, setIsLimitOver] = React.useState(false);
     
     //プレースホルダー
     const textareaRef_MemoName = React.useRef('');
@@ -87,6 +89,14 @@ function CreateNewMemoButton(props) {
             createMemo(props.uid);
         }
 
+        //40文字を超える場合はエラー
+        if(textareaRef_MemoName.current.value.length > 40){
+            setIsLimitOver(true);
+            return;
+        }
+
+        //モーダルを閉じた場合はsetIsLimitOverをfalseに設定
+        setIsLimitOver(false);
         setOpen(false);
     };
 
@@ -136,6 +146,9 @@ function CreateNewMemoButton(props) {
                             >
                             ADD
                             </ColorButton>
+
+                            {isLimitOver ? <p>タイトルが長すぎます.</p> : null}
+
                         </Grid>
                     </Grid>
                 </Fade>
