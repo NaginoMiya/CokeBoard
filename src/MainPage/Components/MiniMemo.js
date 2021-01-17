@@ -102,7 +102,8 @@ function MiniMemo(props) {
         let tmp = props.CurrentMemo;
         tmp.MiniMemos[props.idx] = textareaRef_md.current.value;
 
-        var docRef = db.collection(collectionName).doc(tmp.MemoName);
+        //var docRef = db.collection(collectionName).doc(tmp.MemoName);
+        var docRef = db.collection(collectionName).doc(String(tmp.CreatedDate));
         docRef.set(tmp);
 
         //props.setMemos([...props.Memos, {MemoName : tmp.MemoName, CreateDate : tmp.CreateDate, MiniMemos : tmp.MiniMemos}]);
@@ -123,7 +124,7 @@ function MiniMemo(props) {
         //ローカルで別のメモに遷移しても大丈夫なようにMemosを更新
         let target_idx = 0;
         for(; target_idx<props.Memos.length; target_idx++){
-            if(props.Memos[target_idx].CreateDate == props.CurrentMemo.CreateDate){
+            if(props.Memos[target_idx].CreatedDate == props.CurrentMemo.CreatedDate){
                 break;
             }
         }
