@@ -12,6 +12,7 @@ import {Fade, Grid} from '@material-ui/core/';
 //Button
 import Button from '@material-ui/core/Button';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import RefreshIcon from '@material-ui/icons/Refresh';
 import { green } from '@material-ui/core/colors';
 
 
@@ -133,9 +134,9 @@ function MemoNameChangeButton(props) {
                 variant="contained"
                 color="primary"
                 className={classes.button}
-                startIcon={<AddCircleOutlineIcon />}
+                endIcon={<RefreshIcon/>}
                 >
-                Change!
+                Change Memo Title!
                 </ColorButton>
             </div>
 
@@ -157,14 +158,14 @@ function MemoNameChangeButton(props) {
                 <Fade in={open}>
                     <Grid container className={classes.paper} spacing={4}>
                         <Grid item xs={10}>
-                            <input ref={textareaRef_MemoName} className={classes.input} placeholder="Memo Title"></input>
+                            <input ref={textareaRef_MemoName} className={classes.input} placeholder="New Memo Title"></input>
                         </Grid>
                         <Grid item xs={2}>
                             <ColorButton
                             onClick={handleClose}
                             variant="contained"
                             color="primary"
-                            endIcon={<AddCircleOutlineIcon />}
+                            endIcon={< AddCircleOutlineIcon  />}
                             >
                             Save!
                             </ColorButton>
